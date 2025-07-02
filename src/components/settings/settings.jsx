@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Sidebar from "../Sidebar/Sidebar";
-import "./Settings.css";
+import "./settings.css";
 
 function Settings() {
   const [formData, setFormData] = useState({
