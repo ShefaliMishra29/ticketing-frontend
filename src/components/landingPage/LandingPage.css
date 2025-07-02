@@ -1,0 +1,180 @@
+html, body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+*{
+  box-sizing: border-box;
+}
+.landing-container {
+  font-family: sans-serif;
+  background: linear-gradient(to right, #f9fbfd, #edf3f9);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  padding: 20px 60px;
+  align-items: center;
+  background: white;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 22px;
+  font-weight: bold;
+  color: #003366;
+}
+
+.logo img {
+  width: 28px;
+  height: 28px;
+}
+
+.nav-buttons a {
+  margin-left: 20px;
+  text-decoration: none;
+  font-weight: 500;
+}
+.login-btn{
+  color: #003366;
+}
+
+.signup-btn {
+  background-color: #003366;
+  color: white;
+  padding: 8px 14px;
+  border-radius: 6px;
+  color: white;
+}
+
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 60px 100px;
+  flex-wrap: wrap;
+  overflow: hidden;
+  width: 100vw;         /* ✅ FORCE full width of the viewport */
+  box-sizing: border-box;
+}
+
+.hero-text {
+  max-width: 500px;
+}
+
+.hero-text h1 {
+  font-size: 36px;
+  font-weight: bold;
+  color: #1b1f24;
+  margin-bottom: 20px;
+}
+
+.hero-text p {
+  font-size: 16px;
+  color: #444;
+  margin-bottom: 30px;
+}
+
+.cta-buttons button {
+  margin-right: 15px;
+  padding: 10px 20px;
+  border-radius: 8px;
+  font-size: 14px;
+  cursor: pointer;
+  border: none;
+  display: inline-flex;
+  align-items: center;
+}
+
+.get-started {
+  background-color: #003366;
+  color: white;
+}
+
+.watch-video {
+  background: none;
+  color: #003366;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.play-icon {
+  font-size: 18px;
+}
+
+.hero-visuals {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+}
+
+.main-image {
+  width: 100%;
+  max-width: 100%;
+  border-radius: 10px;
+}
+
+.calendar,
+.graph {
+  width: 80px;
+}
+
+.calendar {
+  position: absolute;
+  top: -30px;
+  left: -40px;
+}
+
+.graph {
+  position: absolute;
+  bottom: -40px;
+  right: -30px;
+}
+
+.trusted-logos {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  padding: 40px;
+  background-color: #f1f4f7;
+}
+
+.trusted-logos img {
+  height: 100px;
+}
+
+.chatbot-launcher {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 50px;
+  height: 50px;
+  background-color: #003366;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  cursor: pointer;
+}
+
+.chatbot-launcher img {
+  width: 28px;
+  height: 28px;
+}
+.cta-buttons {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  flex-wrap: nowrap; /* prevent wrapping to next line */
+}

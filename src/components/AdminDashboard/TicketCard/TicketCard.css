@@ -1,0 +1,99 @@
+.ticket-card {
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 18px;
+  margin-bottom: 20px;
+  font-family: sans-serif;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.04);
+}
+
+.ticket-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+}
+
+.ticket-id {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 20px;
+  color: #333;
+}
+
+.status-dot {
+  height: 27px;
+  width: 27px;
+  background-color: #fbbc04;
+  border-radius: 50%;
+}
+
+.ticket-time {
+  text-align: right;
+  color: #777;
+  position: relative;
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.exact-time{
+  position: relative;
+  top: 28px;
+  color: #333;
+  font-weight: 700;
+  font-size: 20px;
+
+}
+.ticket-message {
+  font-size: 20px;
+  color: #000000;
+  margin-left: 40px;
+  font-weight: 500;
+}
+
+.ticket-card-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.user-info img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+.name {
+  font-weight: 500;
+  font-size: 13px;
+}
+
+.phone,
+.email {
+  font-size: 12px;
+  color: #666;
+}
+
+.open-ticket {
+  font-size: 13px;
+  color: #184E7F;
+  text-decoration: none;
+}
+
+.open-ticket:hover {
+  text-decoration: underline;
+}
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 12px 0;
+}

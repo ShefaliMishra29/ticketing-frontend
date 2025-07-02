@@ -1,0 +1,173 @@
+.sidebar {
+  width: 110px;
+  background-color: #f8f8f8;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  padding-bottom: 10px;
+  height: 100vh;
+  flex-shrink: 0;
+}
+
+.sidebar > div:first-child {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 25px;
+  flex-grow: 0;
+}
+
+.logo {
+  margin-bottom: 10px;
+  padding: 0 10px;
+}
+
+.logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+.nav-icons {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.nav-icons span {
+  font-size: 20px;
+  margin: 20px 0;
+  cursor: pointer;
+}
+
+.tooltip-container {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip-text {
+  visibility: hidden;
+  background-color: #33475b;
+  color: #fff;
+  font-size: 12px;
+  padding: 6px 10px;
+  border-radius: 6px;
+  position: absolute;
+  left: 110%;
+  top: 50%;
+  transform: translateY(-50%);
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1000;
+}
+
+.tooltip-container:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}
+
+.nav-icons img {
+  width: 28px;
+  height: 28px;
+  object-fit: contain;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.nav-icons img[alt="Contact Center"] {
+  width: 90px;
+  height: 50px;
+  margin-right: 50px;
+}
+
+.nav-icons img:hover {
+  opacity: 1;
+}
+
+.profile-icon {
+  font-size: 24px;
+  margin-bottom: 1px;
+}
+
+.profile-icon img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+
+.profile-icon img:hover {
+  opacity: 1;
+}
+.logout-confirm-box {
+  position: fixed; /* changed from absolute to fixed */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 24px 20px;
+  width: 280px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.25);
+  z-index: 99;
+  text-align: center;
+  opacity: 0;
+  animation: fadeInSlideUp 0.3s ease forwards;
+}
+@keyframes fadeInSlideUp {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -40%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
+}
+.logout-confirm-box p {
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.logout-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+.cancel-btn {
+  background-color: #f0f0f0;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.logout-btn {
+  background-color: #e53935;
+  color: white;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 5px;
+  cursor: pointer;
+   font-weight: 500;
+}
+/* 👇 Blur the background */
+.backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  backdrop-filter: blur(5px); /* <-- this applies the blur */
+  background-color: rgba(0, 0, 0, 0.2); /* optional semi-dark overlay */
+  z-index: 98;
+}

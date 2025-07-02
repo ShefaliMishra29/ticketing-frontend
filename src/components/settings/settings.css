@@ -1,0 +1,119 @@
+.settings-layout {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.settings-content {
+  flex: 1;
+  padding: 30px;
+  background-color: #fff;
+  font-family: sans-serif;
+}
+
+.settings-card {
+  background: #f8f9fc;
+  border-radius: 14px;
+  padding: 30px;
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.settings-heading {
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 2px solid #003366;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
+}
+
+.settings-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  max-width: 500px;
+}
+
+.form-group label {
+  font-size: 14px;
+  font-weight: 500;
+  margin-bottom: 6px;
+}
+
+.form-group input {
+  padding: 10px 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 14px;
+  width: 100%;
+}
+
+.input-with-icon {
+  position: relative;
+}
+
+.input-with-icon input {
+  padding-right: 30px;
+}
+
+.info-icon {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-weight: bold;
+  font-size: 13px;
+  background-color: #e9ecef;
+  border-radius: 50%;
+  width: 18px;
+  height: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: default;
+}
+
+.form-actions {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.save-btn {
+  background-color: #003366;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 14px;
+  cursor: pointer;
+}
+.page-title {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 30px;
+  margin-top: 5px;
+  color: gray;
+}
+
+.card-title {
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 2px solid #003366;
+  display: inline-block;
+  margin-bottom: 20px;
+  padding-bottom: 6px;
+}
+.error-text {
+  color: red;
+  font-size: 13px;
+  margin-top: 4px;
+  padding-top: 20px;
+}
+
+.success-text {
+  color: green;
+  font-size: 13px;
+  margin-top: 4px;
+  padding-top: 20px;
+}
