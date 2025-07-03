@@ -47,7 +47,7 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
         setHasAssigned(true);
         onTicketUpdated?.();
       } else {
-        console.error("❌ Update failed:", data.error);
+        console.error("❌ Assign update failed:", data.error);
       }
     } catch (err) {
       console.error("❌ Network error:", err);
