@@ -31,24 +31,45 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
     fetchTeam();
   }, []);
 
-  const updateTicket = async (field, value) => {
+  const updateAssignedTo = async (value) => {
     try {
-      const res = await fetch(`https://ticketing-backend-9uw2.onrender.com/${selectedChat._id}`, {
-        method: "PATCH",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ [field]: value }),
-      });
+      const res = await fetch(
+        `https://ticketing-backend-9uw2.onrender.com/api/chat-users/${selectedChat._id}`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ assignedTo: value }),
+        }
+      );
 
       const data = await res.json();
       if (res.ok) {
-        if (field === "assignedTo") {
-          setHasAssigned(true);
-        }
-        if (typeof onTicketUpdated === "function") {
-          onTicketUpdated();
-        }
+        setHasAssigned(true);
+        onTicketUpdated?.();
       } else {
         console.error("❌ Update failed:", data.error);
+      }
+    } catch (err) {
+      console.error("❌ Network error:", err);
+    }
+  };
+
+  const updateStatus = async (value) => {
+    try {
+      const res = await fetch(
+        `https://ticketing-backend-9uw2.onrender.com/api/chat-users/${selectedChat._id}/status`,
+        {
+          method: "PATCH",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ status: value }),
+        }
+      );
+
+      const data = await res.json();
+      if (res.ok) {
+        onTicketUpdated?.();
+      } else {
+        console.error("❌ Status update failed:", data.error);
       }
     } catch (err) {
       console.error("❌ Network error:", err);
@@ -58,8 +79,7 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
   const handleAssignChange = (e) => {
     const value = e.target.value;
     setAssignedTo(value);
-    updateTicket("assignedTo", value);
-    setHasAssigned(true);
+    updateAssignedTo(value);
   };
 
   const handleStatusChange = (e) => {
@@ -69,8 +89,8 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
     } else {
       setStatus("Unresolved");
       setIsResolved(false);
-      updateTicket("status", "Unresolved");
-      selectedChat.status = "Unresolved"; // 👈 sync UI
+      updateStatus("Unresolved");
+      selectedChat.status = "Unresolved";
     }
   };
 
@@ -78,9 +98,7 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
     setShowConfirm(false);
     setStatus("Resolved");
     setIsResolved(true);
-    updateTicket("status", "Resolved");
-
-    // ✅ Update the local selectedChat object to persist UI state
+    updateStatus("Resolved");
     selectedChat.status = "Resolved";
   };
 
