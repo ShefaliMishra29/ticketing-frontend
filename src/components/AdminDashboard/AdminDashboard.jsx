@@ -11,7 +11,7 @@ function AdminDashboard() {
   useEffect(() => {
     const fetchTickets = async () => {
       try {
-        const response = await fetch("http://localhost:5000/api/chatusers");
+        const response = await fetch("https://ticketing-backend-9uw2.onrender.com/api/chatusers");
         const data = await response.json();
         console.log("🎯 Fetched chat users:", data);
 
@@ -24,7 +24,6 @@ function AdminDashboard() {
               const messages = await msgRes.json();
 
               if (Array.isArray(messages) && messages.length > 0) {
-                // ✅ take the first message from DB
                 firstMessage = messages[0].text;
               }
             } catch (err) {
@@ -54,6 +53,7 @@ function AdminDashboard() {
           })
         );
 
+        console.log("🎯 Final Enriched Tickets:", enriched);
         setTickets(enriched);
       } catch (error) {
         console.error("❌ Error fetching tickets:", error);
@@ -64,9 +64,8 @@ function AdminDashboard() {
   }, []);
 
   const filteredTickets = tickets.filter((ticket) => {
-    const tabMatch =
-      activeTab === "all" ||
-      ticket.status?.toLowerCase() === activeTab.toLowerCase();
+    const status = ticket.status?.toLowerCase() || "unresolved";
+    const tabMatch = activeTab === "all" || status === activeTab.toLowerCase();
 
     const term = searchTerm.toLowerCase();
     const inMessage = ticket.message?.toLowerCase().includes(term);
@@ -130,9 +129,10 @@ function AdminDashboard() {
         </div>
 
         {filteredTickets.length > 0 ? (
-          filteredTickets.map((ticket) => (
-            <TicketCard key={ticket.id} {...ticket} />
-          ))
+          filteredTickets.map((ticket) => {
+            console.log("🎯 Rendering TicketCard:", ticket);
+            return <TicketCard key={ticket.id} {...ticket} />;
+          })
         ) : (
           <p style={{ padding: "20px", textAlign: "center" }}>No tickets found.</p>
         )}
