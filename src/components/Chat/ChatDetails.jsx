@@ -12,7 +12,7 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
   useEffect(() => {
     if (selectedChat) {
       setAssignedTo(selectedChat.assignedTo || "");
-      setHasAssigned(false); // ✅ Always allow change initially
+      setHasAssigned(false);
       setStatus(selectedChat.status || "Unresolved");
       setIsResolved(selectedChat.status === "Resolved");
     }
@@ -42,7 +42,7 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
       const data = await res.json();
       if (res.ok) {
         if (field === "assignedTo") {
-          setHasAssigned(true); // ✅ Disable after assignment
+          setHasAssigned(true);
         }
         if (typeof onTicketUpdated === "function") {
           onTicketUpdated();
@@ -59,7 +59,7 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
     const value = e.target.value;
     setAssignedTo(value);
     updateTicket("assignedTo", value);
-    setHasAssigned(true); // ✅ Disable dropdown after choosing
+    setHasAssigned(true);
   };
 
   const handleStatusChange = (e) => {
@@ -68,7 +68,9 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
       setShowConfirm(true);
     } else {
       setStatus("Unresolved");
+      setIsResolved(false);
       updateTicket("status", "Unresolved");
+      selectedChat.status = "Unresolved"; // 👈 sync UI
     }
   };
 
@@ -77,6 +79,9 @@ function ChatDetails({ selectedChat, onTicketUpdated }) {
     setStatus("Resolved");
     setIsResolved(true);
     updateTicket("status", "Resolved");
+
+    // ✅ Update the local selectedChat object to persist UI state
+    selectedChat.status = "Resolved";
   };
 
   const handleCancel = () => {
