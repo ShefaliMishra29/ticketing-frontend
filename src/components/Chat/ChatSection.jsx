@@ -13,7 +13,7 @@ function ChatSection() {
 
   const fetchChats = async () => {
     try {
-      const res = await fetch("https://ticketing-backend-9uw2.onrender.com/api/chat-users"); // ✅ fixed endpoint
+      const res = await fetch("https://ticketing-backend-9uw2.onrender.com/api/chatusers"); // ✅ correct endpoint
       const users = await res.json();
 
       const enrichedChats = await Promise.all(
@@ -39,7 +39,7 @@ function ChatSection() {
             messages: [preview],
             firstMessage: preview,
             assignedTo: user.assignedTo || "",
-            status: user.status || "Unresolved", // ✅ this will now reflect actual MongoDB value
+            status: user.status || "Unresolved", // ✅ this now reflects MongoDB
           };
         })
       );
@@ -72,7 +72,7 @@ function ChatSection() {
       <ChatWindow selectedChat={selectedChat} />
       <ChatDetails
         selectedChat={selectedChat}
-        onTicketUpdated={fetchChats} // ✅ refreshes data after status update
+        onTicketUpdated={fetchChats}
       />
     </div>
   );
